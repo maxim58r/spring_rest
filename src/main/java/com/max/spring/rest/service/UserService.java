@@ -9,8 +9,6 @@ public interface UserService {
 
     User findById(long id);
 
-    void updateUser(long id, User updateUser);
-
     void deleteUser(long id);
 
     List<User> findAll();

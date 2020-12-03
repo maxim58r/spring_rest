@@ -18,19 +18,12 @@ public class UserDaoImp implements UserDao {
     @Override
     public void saveUser(User user) {
         if (user.getId() == null) {
-            user.setPassword(user.getPassword());
-//            entityManager.persist(user);
             sessionFactory.getCurrentSession().save(user);
-        } else updateUser(user.getId(), user);
+        } else updateUser(user);
     }
 
     @Override
-    public void updateUser(long id, User updateUser) {
-        User user = findById(id);
-        user.setUsername(updateUser.getUsername());
-        user.setPassword(updateUser.getPassword());
-        user.setRole(updateUser.getRole());
-        user.setSalary(updateUser.getSalary());
+    public void updateUser(User user) {
         sessionFactory.getCurrentSession().update(user);
     }
 
